@@ -33,9 +33,9 @@ embedder = SentenceTransformer('all-MiniLM-L6-v2')
 
 df = pd.read_csv("hotelReviewsInChicago.csv")
 
-df['Hotel'].drop_duplicates()
+df['hotelName'].drop_duplicates()
 
-df_combined = df.sort_values(['Hotel']).groupby('Hotel', sort=False).review.apply(''.join).reset_index(name='all_review')
+df_combined = df.sort_values(['hotelName']).groupby('hotelName', sort=False).review.apply(''.join).reset_index(name='all_review')
 
 df_combined
 
@@ -59,7 +59,7 @@ df_sentences = df_combined.set_index("all_review")
 
 df_sentences.head()
 
-df_sentences = df_sentences["Hotel"].to_dict()
+df_sentences = df_sentences["hotelName"].to_dict()
 df_sentences_list = list(df_sentences.keys())
 len(df_sentences_list)
 
