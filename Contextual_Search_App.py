@@ -31,7 +31,7 @@ st.title("Daniel Smetana Chicago Contextual Search Engine")
 
 embedder = SentenceTransformer('all-MiniLM-L6-v2')
 
-df = pd.read_csv("hotelReviewsInChicago.csv")
+df = pd.read_csv("C:\Users\dsmet\OneDrive\Desktop\MABA Program\Coursework\MABA 6490 Machine Learning Design\Contextual Search Engine\DanielSmetana_Contextual_Search\hotelReviewsInChicago.csv")
 
 df['Hotel'].drop_duplicates()
 
