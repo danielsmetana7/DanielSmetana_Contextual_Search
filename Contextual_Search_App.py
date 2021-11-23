@@ -31,7 +31,7 @@ st.title("Daniel Smetana Chicago Contextual Search Engine")
 
 embedder = SentenceTransformer('all-MiniLM-L6-v2')
 
-df = pd.read_csv("hotelReviewsInChicago")
+df = pd.read_csv("hotelReviewsInChicago.csv")
 
 df['Hotel'].drop_duplicates()
 
