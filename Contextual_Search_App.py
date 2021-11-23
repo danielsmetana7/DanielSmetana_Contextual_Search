@@ -110,7 +110,7 @@ for query, query_embedding in zip(queries, query_embeddings):
         print("Score:   ", "(Score: %.4f)" % (1-distance) , "\n" )
         print("Paragraph:   ", corpus[idx].strip(), "\n" )
         row_dict = df.loc[df['all_review']== corpus[idx]]
-        print("paper_id:  " , row_dict['Hotel'] , "\n")
+        print("paper_id:  " , row_dict['hotelName'] , "\n")
         # print("Title:  " , row_dict["title"][corpus[idx]] , "\n")
         # print("Abstract:  " , row_dict["abstract"][corpus[idx]] , "\n")
         # print("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
