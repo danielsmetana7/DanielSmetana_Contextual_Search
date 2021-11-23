@@ -63,7 +63,7 @@ df_sentences = df_sentences["hotelName"].to_dict()
 df_sentences_list = list(df_sentences.keys())
 len(df_sentences_list)
 
-list(df_sentences.keys())[:5]
+#list(df_sentences.keys())[:5]
 
 import pandas as pd
 from tqdm import tqdm
@@ -81,16 +81,11 @@ corpus = df_sentences_list
 corpus_embeddings = embedder.encode(corpus,show_progress_bar=True)
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
-paraphrases = util.paraphrase_mining(model, corpus)
-query_embeddings_p =  util.paraphrase_mining(model, queries,show_progress_bar=True)
-
-
-
-
-
 queries = ['Hotel not too far from Sears Tower',
            'Hotel closest to Navy Pier'
            ]
+paraphrases = util.paraphrase_mining(model, corpus)
+query_embeddings_p =  util.paraphrase_mining(model, queries, show_progress_bar=True)
 
 
 query_embeddings = embedder.encode(queries,show_progress_bar=True)
