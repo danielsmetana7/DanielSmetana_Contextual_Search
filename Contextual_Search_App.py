@@ -48,7 +48,7 @@ df_combined = df.sort_values(['hotelName']).groupby('hotelName', sort=False).rev
 
 import re
 
-df_combined['all_review'] = df_combined['all_review'].apply(lambda x: re.sub('[^a-zA-z0-9\s]','',x))
+df_combined['all_review'] = df_combined['all_review'].apply(lambda x: re.sub('[^a-zA-z0-9\s]','. ',x))
 
 def lower_case(input_str):
     input_str = input_str.lower()
