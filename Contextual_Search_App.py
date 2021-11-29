@@ -101,18 +101,18 @@ for query, query_embedding in zip(queries, query_embeddings):
     results = zip(range(len(distances)), distances)
     results = sorted(results, key=lambda x: x[1])
 
-    st.text("\n\n=========================================================")
-    st.text("==========================Query==============================")
-    st.text(query)
-    st.text("=========================================================")
+    st.write("\n\n=========================================================")
+    st.write("==========================Query==============================")
+    st.write("===",query,"=====")
+    st.write("=========================================================")
 
 
     for idx, distance in results[0:closest_n]:
-        st.text("Score:   ", "(Score: %.4f)" % (1-distance) , "\n" )
-        st.text("Paragraph:   ", corpus[idx].strip(), "\n" )
+        st.write("Score:   ", "(Score: %.4f)" % (1-distance) , "\n" )
+        st.write("Paragraph:   ", corpus[idx].strip(), "\n" )
         row_dict = df.loc[df['all_review']== corpus[idx]]
-        st.text("paper_id:  " , row_dict['hotelName'] , "\n")
+        st.write("paper_id:  " , row_dict['hotelName'] , "\n")
         # print("Title:  " , row_dict["title"][corpus[idx]] , "\n")
         # print("Abstract:  " , row_dict["abstract"][corpus[idx]] , "\n")
-        st.text("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
-        st.text("-------------------------------------------")
+        st.write("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
+        st.write("-------------------------------------------")
