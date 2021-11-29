@@ -72,13 +72,9 @@ from sentence_transformers import SentenceTransformer, util
 df_sentences_list = [str(d) for d in tqdm(df_sentences_list)]
 
 
-def get_input():
-    search_criteria = input("Enter search criteria: ")
-    return search_criteria
+search_criteria = st.text_input("Please enter search criteria: ")
 
-get_input()
-
-
+print(search_criteria)
 
 # Corpus with example sentences
 corpus = df_sentences_list
