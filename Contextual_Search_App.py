@@ -108,11 +108,11 @@ for query, query_embedding in zip(queries, query_embeddings):
 
 
     for idx, distance in results[0:closest_n]:
+        st.write("Hotel Name:  " , row_dict['hotelName'] , "\n")
         st.write("Score:   ", "(Score: %.4f)" % (1-distance) , "\n" )
-        st.write("Paragraph:   ", corpus[idx].strip(), "\n" )
+        #st.write("Paragraph:   ", corpus[idx].strip(), "\n" )
         row_dict = df.loc[df['all_review']== corpus[idx]]
-        st.write("paper_id:  " , row_dict['hotelName'] , "\n")
         # print("Title:  " , row_dict["title"][corpus[idx]] , "\n")
         # print("Abstract:  " , row_dict["abstract"][corpus[idx]] , "\n")
-        st.write("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
+        #st.write("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
         st.write("-------------------------------------------")
