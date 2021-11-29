@@ -36,7 +36,9 @@ df = pd.read_csv("hotelReviewsInChicago.csv")
 
 df['hotelName'].drop_duplicates()
 
-df_combined = df.sort_values(['hotelName']).groupby('hotelName', sort=False).review.apply('. '.join).reset_index(name='all_review')
+s = "."
+
+df_combined = df.sort_values(['hotelName']).groupby('hotelName', sort=False).review.apply(s.join).reset_index(name='all_review')
 
 #df_combined
 
