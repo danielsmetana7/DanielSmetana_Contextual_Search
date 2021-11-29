@@ -26,7 +26,7 @@ from sentence_transformers import SentenceTransformer
 import scipy.spatial
 import pickle as pkl
 
-st.title("Daniel Smetana Chicago Contextual Search Engine")
+st.title("Daniel Smetana Chicago Hotel Contextual Search Engine")
 
 ################################################################################
 
@@ -128,7 +128,7 @@ for query, query_embedding in zip(queries, query_embeddings):
         st.write("Score:   ", "%.4f" % (1-distance) , "\n" )
         #st.write(corpus[idx].strip())
         st.write("Reviews Summary:   ", summarize(corpus[idx].strip(), word_count = 100, split = False), "\n" )
-        st.write("Reviews Top-10 Keywords:   ", keywords(corpus[idx].strip(), words = 25, lemmatize = True), "\n")
+        st.write("Reviews Top-25 Keywords:   ", keywords(corpus[idx].strip(), words = 25, lemmatize = True), "\n")
         # print("Title:  " , row_dict["title"][corpus[idx]] , "\n")
         # print("Abstract:  " , row_dict["abstract"][corpus[idx]] , "\n")
         #st.write("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
