@@ -8,23 +8,12 @@
 
 import streamlit as st
 import pandas as pd
-import numpy as np
-
-import plotly.express as px
-
 import spacy
-from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
-from collections import Counter
-from heapq import nlargest
-import os
-import spacy
 nlp = spacy.load("en_core_web_sm")
-from spacy import displacy
-from string import punctuation
 from sentence_transformers import SentenceTransformer
 import scipy.spatial
-import pickle as pkl
+
 
 st.title("Daniel Smetana Chicago Hotel Contextual Search Engine")
 
