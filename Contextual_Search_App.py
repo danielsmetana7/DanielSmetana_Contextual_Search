@@ -38,7 +38,7 @@ df['hotelName'].drop_duplicates()
 
 df_combined = df.sort_values(['hotelName']).groupby('hotelName', sort=False).review.apply(''.join).reset_index(name='all_review')
 
-df_combined
+#df_combined
 
 
 
@@ -92,6 +92,19 @@ query_embeddings_p =  util.paraphrase_mining(model, queries, show_progress_bar=T
 query_embeddings = embedder.encode(queries,show_progress_bar=True)
 
 
+
+
+
+
+
+
+
+
+
+
+from gensim.summarization.summarizer import summarize
+
+
 # Find the closest 5 sentences of the corpus for each query sentence based on cosine similarity
 closest_n = 5
 st.text("Top 5 most similar hotels:")
@@ -111,7 +124,7 @@ for query, query_embedding in zip(queries, query_embeddings):
         row_dict = df.loc[df['all_review']== corpus[idx]]
         st.write("Hotel Name:  " , row_dict['hotelName'] , "\n")
         st.write("Score:   ", "%.4f" % (1-distance) , "\n" )
-        st.write("Paragraph:   ", corpus[idx].strip(), "\n" )
+        st.write("Paragraph:   ", summarize(corpus[idx].strip(), word_count = 100), "\n" )
         # print("Title:  " , row_dict["title"][corpus[idx]] , "\n")
         # print("Abstract:  " , row_dict["abstract"][corpus[idx]] , "\n")
         #st.write("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
