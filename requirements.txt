@@ -1,0 +1,11 @@
+pandas
+streamlit
+plotly
+sklearn
+spacy
+string
+sentence_transformers
+scipy.spatial
+re
+tqdm
+gensim version == 3.8.3
