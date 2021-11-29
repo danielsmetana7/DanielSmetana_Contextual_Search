@@ -103,7 +103,7 @@ for query, query_embedding in zip(queries, query_embeddings):
 
     st.text("\n\n=========================================================")
     st.text("==========================Query==============================")
-    st.text("===",query,"=====")
+    st.text(query)
     st.text("=========================================================")
 
 
@@ -114,5 +114,5 @@ for query, query_embedding in zip(queries, query_embeddings):
         st.text("paper_id:  " , row_dict['hotelName'] , "\n")
         # print("Title:  " , row_dict["title"][corpus[idx]] , "\n")
         # print("Abstract:  " , row_dict["abstract"][corpus[idx]] , "\n")
-        # print("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
+        st.text("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
         st.text("-------------------------------------------")
