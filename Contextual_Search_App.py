@@ -74,7 +74,7 @@ df_sentences_list = [str(d) for d in tqdm(df_sentences_list)]
 
 search_criteria = st.text_input("Please enter search criteria: ")
 
-np.array(search_criteria).reshape(1,-1)
+np.array(search_criteria).reshape(1, 2)
 
 
 # Corpus with example sentences
