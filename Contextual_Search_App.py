@@ -8,6 +8,7 @@
 
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 import plotly.express as px
 
@@ -73,7 +74,7 @@ df_sentences_list = [str(d) for d in tqdm(df_sentences_list)]
 
 search_criteria = st.text_input("Please enter search criteria: ")
 
-str(search_criteria)
+np.array(search_criteria).reshape(1,-1)
 
 
 # Corpus with example sentences
