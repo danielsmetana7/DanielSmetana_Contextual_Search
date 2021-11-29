@@ -36,7 +36,7 @@ df = pd.read_csv("hotelReviewsInChicago.csv")
 
 df['hotelName'].drop_duplicates()
 
-df_combined = df.sort_values(['hotelName']).groupby('hotelName', sort=False).review.apply(''.join).reset_index(name='all_review')
+df_combined = df.sort_values(['hotelName']).groupby('hotelName', sort=False).review.apply('. '.join).reset_index(name='all_review')
 
 #df_combined
 
@@ -125,7 +125,7 @@ for query, query_embedding in zip(queries, query_embeddings):
         st.write("Hotel Name:  " , row_dict['hotelName'] , "\n")
         st.write("Score:   ", "%.4f" % (1-distance) , "\n" )
         st.write(type(corpus[idx].strip()))
-        st.write(corpus[idx].strip())
+        text = corpus[idx].strip()
         #st.write("Paragraph:   ", summarize(corpus[idx].strip(), word_count = 100, split = False), "\n" )
         #st.write("Keywords:   ", keywords(corpus[idx].strip()), "\n")
         # print("Title:  " , row_dict["title"][corpus[idx]] , "\n")
