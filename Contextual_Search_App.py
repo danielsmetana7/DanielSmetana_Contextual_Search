@@ -103,7 +103,7 @@ query_embeddings = embedder.encode(queries,show_progress_bar=True)
 
 
 from gensim.summarization.summarizer import summarize
-
+from gensim.summarization import keywords
 
 # Find the closest 5 sentences of the corpus for each query sentence based on cosine similarity
 closest_n = 5
@@ -124,7 +124,10 @@ for query, query_embedding in zip(queries, query_embeddings):
         row_dict = df.loc[df['all_review']== corpus[idx]]
         st.write("Hotel Name:  " , row_dict['hotelName'] , "\n")
         st.write("Score:   ", "%.4f" % (1-distance) , "\n" )
-        st.write("Paragraph:   ", summarize(corpus[idx].strip(), word_count = 100, split = False), "\n" )
+        st.write(type(corpus[idx].strip()))
+        st.write(corpus[idx].strip())
+        #st.write("Paragraph:   ", summarize(corpus[idx].strip(), word_count = 100, split = False), "\n" )
+        #st.write("Keywords:   ", keywords(corpus[idx].strip()), "\n")
         # print("Title:  " , row_dict["title"][corpus[idx]] , "\n")
         # print("Abstract:  " , row_dict["abstract"][corpus[idx]] , "\n")
         #st.write("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
