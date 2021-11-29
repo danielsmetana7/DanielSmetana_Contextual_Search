@@ -124,7 +124,7 @@ for query, query_embedding in zip(queries, query_embeddings):
         row_dict = df.loc[df['all_review']== corpus[idx]]
         st.write("Hotel Name:  " , row_dict['hotelName'] , "\n")
         st.write("Score:   ", "%.4f" % (1-distance) , "\n" )
-        st.write("Paragraph:   ", summarize(str(corpus[idx].strip()), word_count = 100), "\n" )
+        st.write("Paragraph:   ", summarize(corpus[idx].strip(), word_count = 100, split = False), "\n" )
         # print("Title:  " , row_dict["title"][corpus[idx]] , "\n")
         # print("Abstract:  " , row_dict["abstract"][corpus[idx]] , "\n")
         #st.write("Abstract_Summary:  " , row_dict["abstract_summary"][corpus[idx]] , "\n")
