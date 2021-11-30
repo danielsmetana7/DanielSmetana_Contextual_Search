@@ -13,7 +13,11 @@ from string import punctuation
 nlp = spacy.load("en_core_web_sm")
 from sentence_transformers import SentenceTransformer
 import scipy.spatial
-
+from tqdm import tqdm
+from sentence_transformers import SentenceTransformer, util
+import re
+from gensim.summarization.summarizer import summarize
+from gensim.summarization import keywords
 
 st.title("Daniel Smetana Chicago Hotel Contextual Search Engine")
 
@@ -29,13 +33,6 @@ s = "."
 
 df_combined = df.sort_values(['hotelName']).groupby('hotelName', sort=False).review.apply(s.join).reset_index(name='all_review')
 
-#df_combined
-
-
-
-
-
-import re
 
 df_combined['all_review'] = df_combined['all_review'].apply(lambda x: re.sub('[^a-zA-z0-9\s]','. ',x))
 
@@ -49,16 +46,9 @@ df = df_combined
 
 df_sentences = df_combined.set_index("all_review")
 
-#df_sentences.head()
-
 df_sentences = df_sentences["hotelName"].to_dict()
 df_sentences_list = list(df_sentences.keys())
 
-#list(df_sentences.keys())[:5]
-
-import pandas as pd
-from tqdm import tqdm
-from sentence_transformers import SentenceTransformer, util
 
 df_sentences_list = [str(d) for d in tqdm(df_sentences_list)]
 
@@ -67,7 +57,6 @@ search_criteria1 = st.text_input("Please enter first search criteria: ")
 search_criteria2 = st.text_input("Please enter second search criteria: ")
 
 queries = [str(search_criteria1), str(search_criteria2)]
-
 
 # Corpus with example sentences
 corpus = df_sentences_list
@@ -84,17 +73,6 @@ query_embeddings = embedder.encode(queries,show_progress_bar=True)
 
 
 
-
-
-
-
-
-
-
-
-
-from gensim.summarization.summarizer import summarize
-from gensim.summarization import keywords
 
 # Find the closest 5 sentences of the corpus for each query sentence based on cosine similarity
 closest_n = 5
