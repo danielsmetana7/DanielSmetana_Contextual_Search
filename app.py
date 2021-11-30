@@ -15,7 +15,7 @@ from sentence_transformers import SentenceTransformer
 import scipy.spatial
 from tqdm import tqdm
 from sentence_transformers import SentenceTransformer, util
-import re
+import regex
 from gensim.summarization.summarizer import summarize
 from gensim.summarization import keywords
 
@@ -34,7 +34,7 @@ s = "."
 df_combined = df.sort_values(['hotelName']).groupby('hotelName', sort=False).review.apply(s.join).reset_index(name='all_review')
 
 
-df_combined['all_review'] = df_combined['all_review'].apply(lambda x: re.sub('[^a-zA-z0-9\s]','. ',x))
+df_combined['all_review'] = df_combined['all_review'].apply(lambda x: regex.sub('[^a-zA-z0-9\s]','. ',x))
 
 def lower_case(input_str):
     input_str = input_str.lower()
