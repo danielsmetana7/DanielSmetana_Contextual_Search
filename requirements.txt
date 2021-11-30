@@ -5,7 +5,7 @@ sklearn
 spacy
 string
 sentence_transformers
-scipy.spatial
+scipy
 re
 tqdm
 gensim==3.8.3
