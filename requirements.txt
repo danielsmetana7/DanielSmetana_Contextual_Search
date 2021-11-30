@@ -7,3 +7,5 @@ sentence_transformers
 scipy
 tqdm
 gensim==3.8.3
+re
+string
