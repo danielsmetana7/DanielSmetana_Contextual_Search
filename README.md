@@ -1,2 +1,2 @@
 # DanielSmetana_Contextual_Search
- Contextual Search Engine for Chicago
+ Contextual Search Engine for Chicago Hotels
