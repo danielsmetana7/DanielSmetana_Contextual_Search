@@ -3,7 +3,6 @@ streamlit
 plotly
 sklearn
 spacy
-string
 sentence_transformers
 scipy
 re
